@@ -1,5 +1,16 @@
 import styles from './Header.module.scss'
 
+const navItemList = ['男款', '女款', '最新消息', '客製商品', '聯絡我們']
+const NavItem = ({ item }) => {
+  return (
+    <li className={styles.navItem}>
+      <a className={styles.navLink} href='#'>
+        {item}
+      </a>
+    </li>
+  )
+}
+
 const Header = ({ icons }) => {
   return (
     <>
@@ -16,31 +27,11 @@ const Header = ({ icons }) => {
           {/* <!-- navbar-menu --> */}
           <nav className={styles.navbarMenu}>
             <ul className={`${styles.navList} ${styles.siteMenuList} mr-auto`}>
-              <li className={styles.navItem}>
-                <a className={styles.navLink} href='#'>
-                  男款
-                </a>
-              </li>
-              <li className={styles.navItem}>
-                <a className={styles.navLink} href='#'>
-                  女款
-                </a>
-              </li>
-              <li className={styles.navItem}>
-                <a className={styles.navLink} href='#'>
-                  最新消息
-                </a>
-              </li>
-              <li className={styles.navItem}>
-                <a className={styles.navLink} href='#'>
-                  客製商品
-                </a>
-              </li>
-              <li className={styles.navItem}>
-                <a className={styles.navLink} href='#'>
-                  聯絡我們
-                </a>
-              </li>
+              {
+                navItemList.map((item, index) =>
+                  <NavItem item={item} key={index} />
+                )
+              }
             </ul>
             <ul className={`${styles.navList} ${styles.siteActionList}`}>
               {/* <!-- search --> */}
@@ -61,7 +52,7 @@ const Header = ({ icons }) => {
                   <use xlinkHref={`${icons}#svg-icon-moon`} />
                 </svg>
                 {/* <!-- sun --> */}
-                <svg className={`${styles.navIcon} cursor-point d-none`} >
+                <svg className={`${styles.navIcon} cursor-point d-none`}>
                   <use xlinkHref={`${icons}#svg-icon-sun`} />
                 </svg>
               </li>
