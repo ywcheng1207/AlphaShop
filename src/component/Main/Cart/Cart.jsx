@@ -1,6 +1,6 @@
 import styles from './Cart.module.scss'
-import product01 from '../../../assets/images/product-1.jpg'
-import product02 from '../../../assets/images/product-2.jpg'
+import product01 from 'assets/images/product-1.jpg'
+import product02 from 'assets/images/product-2.jpg'
 //  ---------------------------------------------------------
 const cartData = [
   {
@@ -8,7 +8,7 @@ const cartData = [
     name: '破壞補丁修身牛仔褲',
     img: product01,
     price: 100,
-    quantity: 2
+    quantity: 1
   },
   {
     id: '2',
@@ -29,7 +29,7 @@ const ProductListItem = ({ icons, item }) => {
             <svg className={`${styles.productAction} minus`}>
               <use xlinkHref={`${icons}#svg-icon-minus`} />
             </svg>
-            <span className={styles.productCount}>1</span>
+            <span className={styles.productCount}>{item.quantity}</span>
             <svg className={`${styles.productAction} plus`}>
               <use xlinkHref={`${icons}#svg-icon-plus`} />
             </svg>
