@@ -52,7 +52,7 @@ const ProductListItem = ({ icons, item, onCartItemsChange }) => {
   )
 }
 
-const Cart = ({ icons }) => {
+const Cart = ({ icons, shippingCost }) => {
   const [items, setItems] = useState(cartData)
 
   const handleCartItemsChange = ({ id, quantity }) => {
@@ -72,11 +72,15 @@ const Cart = ({ icons }) => {
     })
   }
 
-  // 計算加總金額
+  // 商品加總金額
   let count = 0
   items.forEach(item => {
     count = count + item.price * item.quantity
   })
+  // 金額加上運費
+  if (shippingCost === '$500') {
+    count = count + 500
+  }
   return (
     <>
       <section className={`${styles.cartContainer} col col-lg-5 col-sm-12`}>
@@ -94,7 +98,7 @@ const Cart = ({ icons }) => {
         {/* --------- 結帳  -------- */}
         <section className={`${styles.cartInfo} ${styles.shipping} col col-12`}>
           <div className={styles.text}>運費</div>
-          <div className={styles.price}>免費</div>
+          <div className={styles.price}>{shippingCost}</div>
         </section>
         <section className={`${styles.cartInfo} ${styles.total} col col-12`}>
           <div className={styles.text}>小計</div>
