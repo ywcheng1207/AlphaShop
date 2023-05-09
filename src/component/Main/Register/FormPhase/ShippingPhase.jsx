@@ -21,9 +21,6 @@ const PhaseItem = ({ id, name, text, period, price, onShippingOption }) => {
 }
 
 const CreditPhase = ({ onShippingOption }) => {
-  // const handleShippingOption = ({ price }) => {
-  //   console.log(price)
-  // }
   return (
     <>
       <form className='col col-12' dataphase='shipping'>

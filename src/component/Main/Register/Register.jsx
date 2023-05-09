@@ -1,7 +1,7 @@
 import Progress from './Progress'
 import Form from './Form'
 import styles from './Register.module.scss'
-const Register = ({ icons, step, onShippingOption }) => {
+const Register = ({ icons, step, onShippingOption, formRef }) => {
   return (
     <>
       <section className={`${styles.registerContainer} col col-lg-6 col-sm-12`}>
@@ -10,6 +10,7 @@ const Register = ({ icons, step, onShippingOption }) => {
         <Form
           step={step}
           onShippingOption={onShippingOption}
+          formRef={formRef}
         />
       </section>
     </>

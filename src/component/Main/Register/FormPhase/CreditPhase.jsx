@@ -1,7 +1,7 @@
 import InputGroup from './InputGroup'
 import styles from './CreditPhase.module.scss'
 
-const ShippingPhase = () => {
+const ShippingPhase = ({ formRef }) => {
   return (
     <>
       <form className='col col-12' dataphase='credit-card'>
@@ -13,6 +13,7 @@ const ShippingPhase = () => {
               placeholder='John Doe'
               layoutLg='input-w-lg-4'
               layoutSm='input-w-sm-full'
+              formRef={formRef}
             />
           </div>
           <div className={`${styles.row} col col-12`}>
@@ -21,6 +22,7 @@ const ShippingPhase = () => {
               placeholder='1111 2222 3333 4444'
               layoutLg='input-w-lg-4'
               layoutSm='input-w-sm-full'
+              formRef={formRef}
             />
           </div>
           <div className={`${styles.row} col col-12`}>
@@ -29,12 +31,14 @@ const ShippingPhase = () => {
               placeholder='MM/YY'
               layoutLg='input-w-lg-3'
               layoutSm='input-w-sm-s3'
+              formRef={formRef}
             />
             <InputGroup
               inputLabel='CVC / CCV'
               placeholder='123'
               layoutLg='input-w-lg-3'
               layoutSm='input-w-sm-s3'
+              formRef={formRef}
             />
           </div>
         </section>

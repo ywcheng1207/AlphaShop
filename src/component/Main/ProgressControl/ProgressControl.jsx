@@ -1,6 +1,6 @@
 import styles from './ProgressControl.module.scss'
 
-const StepItem = ({ icons, step, onStepItemChange }) => {
+const StepItem = ({ icons, step, onStepItemChange, onSubmit }) => {
   if (step === 0) {
     return (
       <section className={`${styles.buttonGroup} col col-12`} dataphase='address'>
@@ -50,13 +50,18 @@ const StepItem = ({ icons, step, onStepItemChange }) => {
           </svg>
           上一步
         </button>
-        <button className={`${styles.next} cursor-point`}>確認下單</button>
+        <button
+          className={`${styles.next} cursor-point`}
+          onClick={onSubmit}
+        >
+          確認下單
+        </button>
       </section>
     )
   }
 }
 
-const ProgressControl = ({ icons, step, onStepItemChange }) => {
+const ProgressControl = ({ icons, step, onStepItemChange, onSubmit }) => {
   return (
     <>
       <section className={`${styles.progressControlContainer} col col-lg-6 col-sm-12`}>
@@ -64,6 +69,7 @@ const ProgressControl = ({ icons, step, onStepItemChange }) => {
           icons={icons}
           step={step}
           onStepItemChange={onStepItemChange}
+          onSubmit={onSubmit}
         />
       </section>
     </>

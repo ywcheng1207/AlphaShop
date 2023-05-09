@@ -81,6 +81,7 @@ const Cart = ({ icons, shippingCost }) => {
   if (shippingCost === '$500') {
     count = count + 500
   }
+
   return (
     <>
       <section className={`${styles.cartContainer} col col-lg-5 col-sm-12`}>
