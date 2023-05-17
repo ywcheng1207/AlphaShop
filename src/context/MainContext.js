@@ -1,5 +1,6 @@
 import { createContext, useState, useRef } from 'react'
 import { CartContextProvier } from './CartContext'
+
 export const MainContext = createContext()
 export const MainContextProvier = ({ children }) => {
   // hook
@@ -9,7 +10,7 @@ export const MainContextProvier = ({ children }) => {
 
   // handle
   const handleStepItemChange = ({ step }) => setStep(step)
-  const handleSubmit = () => {
+  const handleSubmit = ({ count }) => {
     let nFill = 0
     formRef.current.forEach((value, key) => {
       if (value.value) {
@@ -19,7 +20,8 @@ export const MainContextProvier = ({ children }) => {
         nFill += 1
       }
     })
-    console.log(`=========> 共${nFill}個欄位沒填`)
+    console.log(`購物車總金額 (小計)： ${count}`)
+    console.log(`(   共${nFill}個欄位沒填   )`)
   }
   const handleShippingOption = ({ price }) => setShippingCost(price)
 

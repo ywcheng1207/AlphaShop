@@ -44,13 +44,9 @@ const ProductListItem = ({ item }) => {
 
 const Cart = () => {
   const { items } = useContext(CartContext)
-  let { count } = useContext(CartContext)
+  const { count } = useContext(CartContext)
   const { shippingCost } = useContext(MainContext)
 
-  // 金額加上運費
-  if (shippingCost === '$500') {
-    count = count + 500
-  }
   return (
     <>
       <section className={`${styles.cartContainer} col col-lg-5 col-sm-12`}>

@@ -1,4 +1,5 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, useContext } from 'react'
+import { MainContext } from 'context/MainContext'
 
 const cartData = [
   {
@@ -21,6 +22,7 @@ export const CartContext = createContext()
 export const CartContextProvier = ({ children }) => {
   // hook
   const [items, setItems] = useState(cartData)
+  const { shippingCost } = useContext(MainContext)
 
   // handle
   const handleCartItemsChange = ({ id, quantity }) => {
@@ -40,11 +42,14 @@ export const CartContextProvier = ({ children }) => {
     })
   }
 
-  // 商品加總金額
+  // 金額小記
   let count = 0
   items.forEach(item => {
     count = count + item.price * item.quantity
   })
+  if (shippingCost === '$500') {
+    count = count + 500
+  }
   // value
   const value = {
     items,
