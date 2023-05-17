@@ -1,7 +1,7 @@
 import styles from './Progress.module.scss'
 import { useContext } from 'react'
 import { AppContext } from 'context/AppContext'
-
+import { MainContext } from 'context/MainContext'
 const Step = ({ text, label, dataphase, step }) => {
   const { icons } = useContext(AppContext)
   return (
@@ -21,7 +21,8 @@ const Step = ({ text, label, dataphase, step }) => {
   )
 }
 
-const Progress = ({ step }) => {
+const Progress = () => {
+  const { step } = useContext(MainContext)
   return (
     <>
       <section className={`${styles.progressContainer} col col-12`}>

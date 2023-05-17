@@ -1,7 +1,10 @@
 import InputGroup from './InputGroup'
 import styles from './CreditPhase.module.scss'
+import { useContext } from 'react'
+import { MainContext } from 'context/MainContext'
 
-const ShippingPhase = ({ formRef }) => {
+const ShippingPhase = () => {
+  const { formRef } = useContext(MainContext)
   return (
     <>
       <form className='col col-12' dataphase='credit-card'>

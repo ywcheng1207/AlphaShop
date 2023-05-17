@@ -1,5 +1,9 @@
 import styles from './ShippingPhase.module.scss'
-const PhaseItem = ({ id, name, text, period, price, onShippingOption }) => {
+import { useContext } from 'react'
+import { MainContext } from 'context/MainContext'
+
+const PhaseItem = ({ id, name, text, period, price }) => {
+  const { onShippingOption } = useContext(MainContext)
   return (
     <label className={`${styles.radioGroup} col col-12`}>
       <input
@@ -20,7 +24,7 @@ const PhaseItem = ({ id, name, text, period, price, onShippingOption }) => {
   )
 }
 
-const CreditPhase = ({ onShippingOption }) => {
+const CreditPhase = () => {
   return (
     <>
       <form className='col col-12' dataphase='shipping'>
@@ -32,7 +36,6 @@ const CreditPhase = ({ onShippingOption }) => {
             text='標準運送'
             period='約 3~7 個工作天'
             price='免費'
-            onShippingOption={onShippingOption}
           />
           <PhaseItem
             id='shippingDhl'
@@ -40,7 +43,6 @@ const CreditPhase = ({ onShippingOption }) => {
             text='DHL 貨運'
             period='48 小時內送達'
             price='$500'
-            onShippingOption={onShippingOption}
           />
         </section>
       </form>

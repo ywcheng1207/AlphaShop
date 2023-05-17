@@ -1,5 +1,8 @@
 import styles from './AddressPhase.module.scss'
 import InputGroup from './InputGroup'
+import { useContext } from 'react'
+import { MainContext } from 'context/MainContext'
+
 const citySelection = [
   { id: 'KLU', city: '基隆市' },
   { id: 'TPH', city: '新北市' },
@@ -31,7 +34,8 @@ const citySelection = [
   { id: 'KMN', city: '金門縣' },
   { id: 'LNN', city: '連江縣' }
 ]
-const AddressPhase = ({ formRef }) => {
+const AddressPhase = () => {
+  const { formRef } = useContext(MainContext)
   return (
     <>
       <form className='col col-12' dataphase='address'>

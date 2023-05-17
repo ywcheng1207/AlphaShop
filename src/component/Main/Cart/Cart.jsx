@@ -2,6 +2,8 @@ import styles from './Cart.module.scss'
 import { useContext } from 'react'
 import { AppContext } from 'context/AppContext'
 import { CartContext } from 'context/CartContext'
+import { MainContext } from 'context/MainContext'
+
 //  ---------------------------------------------------------
 const ProductListItem = ({ item }) => {
   const { icons } = useContext(AppContext)
@@ -40,9 +42,11 @@ const ProductListItem = ({ item }) => {
   )
 }
 
-const Cart = ({ shippingCost }) => {
+const Cart = () => {
   const { items } = useContext(CartContext)
   let { count } = useContext(CartContext)
+  const { shippingCost } = useContext(MainContext)
+
   // 金額加上運費
   if (shippingCost === '$500') {
     count = count + 500

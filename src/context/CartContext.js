@@ -19,7 +19,10 @@ const cartData = [
 
 export const CartContext = createContext()
 export const CartContextProvier = ({ children }) => {
+  // hook
   const [items, setItems] = useState(cartData)
+
+  // handle
   const handleCartItemsChange = ({ id, quantity }) => {
     if (quantity < 0) {
       return
@@ -36,11 +39,13 @@ export const CartContextProvier = ({ children }) => {
       })
     })
   }
+
   // 商品加總金額
   let count = 0
   items.forEach(item => {
     count = count + item.price * item.quantity
   })
+  // value
   const value = {
     items,
     onCartItemsChange: handleCartItemsChange,
