@@ -1,6 +1,9 @@
 import styles from './ProgressControl.module.scss'
+import { useContext } from 'react'
+import { AppContext } from 'context/AppContext'
 
-const StepItem = ({ icons, step, onStepItemChange, onSubmit }) => {
+const StepItem = ({ step, onStepItemChange, onSubmit }) => {
+  const { icons } = useContext(AppContext)
   if (step === 0) {
     return (
       <section className={`${styles.buttonGroup} col col-12`} dataphase='address'>
@@ -61,12 +64,11 @@ const StepItem = ({ icons, step, onStepItemChange, onSubmit }) => {
   }
 }
 
-const ProgressControl = ({ icons, step, onStepItemChange, onSubmit }) => {
+const ProgressControl = ({ step, onStepItemChange, onSubmit }) => {
   return (
     <>
       <section className={`${styles.progressControlContainer} col col-lg-6 col-sm-12`}>
         <StepItem
-          icons={icons}
           step={step}
           onStepItemChange={onStepItemChange}
           onSubmit={onSubmit}

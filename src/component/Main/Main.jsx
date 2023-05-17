@@ -7,7 +7,7 @@ import ProgressControl from './ProgressControl/ProgressControl'
 // --
 import { useState, useRef } from 'react'
 // --
-const Main = ({ icons }) => {
+const Main = () => {
   const [step, setStep] = useState(0)
   const [shippingCost, setShippingCost] = useState('免費')
   const formRef = useRef(new Map())
@@ -31,17 +31,14 @@ const Main = ({ icons }) => {
       <main className='site-main'>
         <div className='main-container'>
           <Register
-            icons={icons}
             step={step}
             onShippingOption={handleShippingOption}
             formRef={formRef}
           />
           <Cart
-            icons={icons}
             shippingCost={shippingCost}
           />
           <ProgressControl
-            icons={icons}
             step={step}
             onStepItemChange={handleStepItemChange}
             onSubmit={handleSubmit}

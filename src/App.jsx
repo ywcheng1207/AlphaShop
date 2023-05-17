@@ -1,16 +1,18 @@
 import './reset.css'
 import './base.scss'
-import icons from './assets/icons/icons.svg'
+import { AppContextProvier } from 'context/AppContext'
 // ---
 import { Header, Main, Footer } from './component'
 // ---
 function App () {
   return (
-    <div className='App'>
-      <Header icons={icons} />
-      <Main icons={icons} />
-      <Footer icons={icons} />
-    </div>
+    <AppContextProvier>
+      <div className='App'>
+        <Header />
+        <Main />
+        <Footer />
+      </div>
+    </AppContextProvier>
   )
 }
 

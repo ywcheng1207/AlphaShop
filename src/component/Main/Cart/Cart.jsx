@@ -1,5 +1,6 @@
 import styles from './Cart.module.scss'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { AppContext } from 'context/AppContext'
 //  ---------------------------------------------------------
 const cartData = [
   {
@@ -17,7 +18,8 @@ const cartData = [
     quantity: 1
   }
 ]
-const ProductListItem = ({ icons, item, onCartItemsChange }) => {
+const ProductListItem = ({ item, onCartItemsChange }) => {
+  const { icons } = useContext(AppContext)
   return (
     <div className={`${styles.productContainer} col col-12`} data-count='0' data-price={item.price}>
       <img className={styles.imgContainer} src={item.img} alt={item.name} />
@@ -52,7 +54,7 @@ const ProductListItem = ({ icons, item, onCartItemsChange }) => {
   )
 }
 
-const Cart = ({ icons, shippingCost }) => {
+const Cart = ({ shippingCost }) => {
   const [items, setItems] = useState(cartData)
 
   const handleCartItemsChange = ({ id, quantity }) => {
@@ -90,7 +92,6 @@ const Cart = ({ icons, shippingCost }) => {
           {items.map((item) => (
             <ProductListItem
               item={item}
-              icons={icons}
               key={item.id}
               onCartItemsChange={handleCartItemsChange}
             />
