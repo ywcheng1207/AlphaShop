@@ -48,28 +48,26 @@ const Cart = () => {
   const { shippingCost } = useContext(MainContext)
 
   return (
-    <>
-      <section className={`${styles.cartContainer} col col-lg-5 col-sm-12`}>
-        <h3 className={styles.cartTitle}>購物籃</h3>
-        <section className={`${styles.productList} col col-12`} data-total-price='0'>
-          {items.map((item) => (
-            <ProductListItem
-              item={item}
-              key={item.id}
-            />
-          ))}
-        </section>
-        {/* --------- 結帳  -------- */}
-        <section className={`${styles.cartInfo} ${styles.shipping} col col-12`}>
-          <div className={styles.text}>運費</div>
-          <div className={styles.price}>{shippingCost}</div>
-        </section>
-        <section className={`${styles.cartInfo} ${styles.total} col col-12`}>
-          <div className={styles.text}>小計</div>
-          <div className={styles.price}>${count}</div>
-        </section>
+    <section className={`${styles.cartContainer} col col-lg-5 col-sm-12`}>
+      <h3 className={styles.cartTitle}>購物籃</h3>
+      <section className={`${styles.productList} col col-12`} data-total-price='0'>
+        {items.map((item) => (
+          <ProductListItem
+            item={item}
+            key={item.id}
+          />
+        ))}
       </section>
-    </>
+      {/* --------- 結帳  -------- */}
+      <section className={`${styles.cartInfo} ${styles.shipping} col col-12`}>
+        <div className={styles.text}>運費</div>
+        <div className={styles.price}>{shippingCost}</div>
+      </section>
+      <section className={`${styles.cartInfo} ${styles.total} col col-12`}>
+        <div className={styles.text}>小計</div>
+        <div className={styles.price}>${count}</div>
+      </section>
+    </section>
   )
 }
 

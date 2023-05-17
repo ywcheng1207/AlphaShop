@@ -24,32 +24,30 @@ const Step = ({ text, label, dataphase, step }) => {
 const Progress = () => {
   const { step } = useContext(MainContext)
   return (
-    <>
-      <section className={`${styles.progressContainer} col col-12`}>
-        {/* 寄送地址 */}
-        <Step
-          text='1'
-          label='寄送地址'
-          dataphase='address'
-          step={step}
-        />
-        <span className={styles.progressBar} data-order='1' step={step} />
-        {/* 運送方式 */}
-        <Step
-          text='2' label='運送方式'
-          dataphase='shipping'
-          step={step}
-        />
-        <span className={styles.progressBar} data-order='2' step={step} />
-        {/* 付款資訊 */}
-        <Step
-          text='3'
-          label='付款資訊'
-          dataphase='credit-card'
-          step={step}
-        />
-      </section>
-    </>
+    <section className={`${styles.progressContainer} col col-12`}>
+      {/* 寄送地址 */}
+      <Step
+        text='1'
+        label='寄送地址'
+        dataphase='address'
+        step={step}
+      />
+      <span className={styles.progressBar} data-order='1' step={step} />
+      {/* 運送方式 */}
+      <Step
+        text='2' label='運送方式'
+        dataphase='shipping'
+        step={step}
+      />
+      <span className={styles.progressBar} data-order='2' step={step} />
+      {/* 付款資訊 */}
+      <Step
+        text='3'
+        label='付款資訊'
+        dataphase='credit-card'
+        step={step}
+      />
+    </section>
   )
 }
 

@@ -71,11 +71,9 @@ const StepItem = () => {
 
 const ProgressControl = () => {
   return (
-    <>
-      <section className={`${styles.progressControlContainer} col col-lg-6 col-sm-12`}>
-        <StepItem />
-      </section>
-    </>
+    <section className={`${styles.progressControlContainer} col col-lg-6 col-sm-12`}>
+      <StepItem />
+    </section>
   )
 }
 

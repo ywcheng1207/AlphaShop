@@ -26,27 +26,25 @@ const PhaseItem = ({ id, name, text, period, price }) => {
 
 const CreditPhase = () => {
   return (
-    <>
-      <form className='col col-12' dataphase='shipping'>
-        <h3 className={styles.formTitle}>運送方式</h3>
-        <section className={`${styles.formBody} col col-12`}>
-          <PhaseItem
-            id='shippingStandard'
-            name='shipping'
-            text='標準運送'
-            period='約 3~7 個工作天'
-            price='免費'
-          />
-          <PhaseItem
-            id='shippingDhl'
-            name='shipping'
-            text='DHL 貨運'
-            period='48 小時內送達'
-            price='$500'
-          />
-        </section>
-      </form>
-    </>
+    <form className='col col-12' dataphase='shipping'>
+      <h3 className={styles.formTitle}>運送方式</h3>
+      <section className={`${styles.formBody} col col-12`}>
+        <PhaseItem
+          id='shippingStandard'
+          name='shipping'
+          text='標準運送'
+          period='約 3~7 個工作天'
+          price='免費'
+        />
+        <PhaseItem
+          id='shippingDhl'
+          name='shipping'
+          text='DHL 貨運'
+          period='48 小時內送達'
+          price='$500'
+        />
+      </section>
+    </form>
   )
 }
 
