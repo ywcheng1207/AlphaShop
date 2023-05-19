@@ -43,8 +43,7 @@ const ProductListItem = ({ item }) => {
 }
 
 const Cart = () => {
-  const { items } = useContext(CartContext)
-  const { count } = useContext(CartContext)
+  const { items, count } = useContext(CartContext)
   const { shippingCost } = useContext(MainContext)
 
   return (

@@ -43,13 +43,8 @@ export const CartContextProvier = ({ children }) => {
   }
 
   // 金額小記
-  let count = 0
-  items.forEach(item => {
-    count = count + item.price * item.quantity
-  })
-  if (shippingCost === '$500') {
-    count = count + 500
-  }
+  let count = items.reduce((ac, item) => ac + item.price * item.quantity, 0)
+  count = (shippingCost === '$500') ? count + 500 : count
   // value
   const value = {
     items,

@@ -1,4 +1,6 @@
-import { AddressPhase, CreditPhase, ShippingPhase } from './FormPhase'
+import AddressPhase from './FormPhase/AddressPhase'
+import CreditPhase from './FormPhase/ShippingPhase'
+import ShippingPhase from './FormPhase/CreditPhase'
 import styles from './Form.module.scss'
 import { useContext } from 'react'
 import { MainContext } from 'context/MainContext'
